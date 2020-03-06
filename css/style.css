@@ -9,7 +9,7 @@ body {
   width: 100%;
   min-height: 200vh;
   font-family: 'Lato', sans-serif;
-  background-color: #faf5e4;
+  background-color: #fefcf5;
 }
 
 button {
@@ -186,6 +186,7 @@ nav.mobileNav button {
 section.about .wrapper {
   display: grid;
   grid-template-rows: 70px 300px 1fr;
+  grid-gap: 20px;
 }
 
 section.about .wrapper h2,
@@ -215,7 +216,6 @@ section.about .wrapper div img {
 }
 
 section.about .wrapper p {
-  margin-top: 20px;
   font-size: 14px;
   line-height: 21px;
   text-align: justify;
@@ -440,13 +440,13 @@ footer p {
   }
 }
 
-@media (min-width: 525px) {
+@media (min-width: 650px) {
   section.about .wrapper {
-    grid-template-rows: 70px 300px 1fr;
+    grid-template-rows: 70px 330px 1fr;
   }
 
   section.about .wrapper div {
-    width: 250px;
+    width: 300px;
     position: relative;
     overflow: hidden;
   }
@@ -458,8 +458,17 @@ footer p {
   }
 
   section.about .wrapper div {
+    width: 100%;
+    height: 100%;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+  }
+}
+
+@media (min-width: 770px) {
+  section.about .wrapper {
+    width: 80%;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   section.about .wrapper p {
@@ -467,12 +476,32 @@ footer p {
     grid-row: 2 / 3;
     margin-top: 0;
   }
-}
 
-@media (min-width: 700px) {
-  section.about .wrapper {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+  .wrapper {
+    width: 80%;
+  }
+
+  .boxContainer {
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+
+  .boxContainer .box h3 {
+    font-size: 16px;
+  }
+
+  .boxContainer .box {
+    width: 32%;
+  }
+
+  section.contactInfo {
+    height: 150px;
+  }
+
+  section.contactInfo .wrapper {
+    width: 80%;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -480,5 +509,11 @@ footer p {
   .homeIntro div {
     width: 740px;
     margin: 0 auto;
+  }
+}
+
+@media (min-width: 950px) {
+  section.about .wrapper {
+    grid-template-rows: 70px 400px 1fr;
   }
 }

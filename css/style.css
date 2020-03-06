@@ -1,0 +1,431 @@
+/* font-family: 'Lato', sans-serif; */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 200vh;
+  font-family: 'Lato', sans-serif;
+  background-color: #faf5e4;
+}
+
+.wrapper {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.wrapper div.homeIntro {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #faf5e4;
+}
+
+.home {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../img/homeBackground.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home .backgroundColor {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(138, 198, 209, 0.75);
+}
+
+.homeIntro div {
+  padding: 12px 0;
+  border-top: 2px solid #faf5e4;
+  border-bottom: 2px solid #faf5e4;
+}
+
+.homeIntro h1,
+.homeIntro h2,
+.homeIntro h3 {
+  text-align: center;
+  font-weight: 400;
+}
+
+.homeIntro h1 {
+  text-transform: uppercase;
+  font-size: 26px;
+}
+
+.homeIntro h2 {
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.homeIntro h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.homeIntro .btnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+}
+
+.btnContainer button {
+  border: 1px solid #faf5e4;
+  color: #faf5e4;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin-top: 10px;
+  background-color: transparent;
+}
+
+.mobileNavBtn {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid #faf5e4;
+  background-color: #8ac6d1;
+  z-index: 1;
+}
+
+.mobileNavBtn div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 1px;
+  background-color: #faf5e4;
+  transition: 0.3s ease transform;
+}
+
+.mobileNavBtn div:nth-of-type(1) {
+  transform: translate(-50%, -600%);
+}
+
+.mobileNavBtn div:nth-of-type(2) {
+  transform: translate(-50%, 0);
+}
+
+.mobileNavBtn div:nth-of-type(3) {
+  transform: translate(-50%, 600%);
+}
+
+.mobileNavBtn.active > div:nth-of-type(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.mobileNavBtn.active > div:nth-of-type(2) {
+  display: none;
+}
+
+.mobileNavBtn.active > div:nth-of-type(3) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+nav.mobileNav {
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  width: 100%;
+  height: 100vh;
+  background-color: #faf5e4;
+  z-index: 1;
+  transition: 0.5s ease transform;
+}
+
+nav.mobileNav ul {
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style: none;
+}
+
+nav.mobileNav button {
+  border: 2px solid #8ac6d1;
+  color: #8ac6d1;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin-top: 10px;
+  background-color: #faf5e4;
+}
+
+section.about .wrapper {
+  display: grid;
+  grid-template-rows: 70px 300px 1fr;
+}
+
+section.about .wrapper h2,
+section.offer .wrapper h2,
+section.price .backgroundColor .wrapper h2,
+section.contact .wrapper h2 {
+  font-size: 32px;
+  text-transform: uppercase;
+  line-height: 70px;
+  color: #8ac6d1;
+}
+
+section.about .wrapper img {
+  width: 100%;
+}
+
+section.about .wrapper div {
+  position: relative;
+  overflow: hidden;
+}
+
+section.about .wrapper div img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section.about .wrapper p {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: justify;
+  color: #8ac6d1;
+}
+
+section.offer .wrapper {
+  padding-bottom: 20px;
+}
+
+.boxContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.boxContainer .box {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  width: 100%;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+}
+
+section.price .wrapper .boxContainer .box:nth-last-of-type(1) {
+  margin-bottom: 30px;
+}
+
+.boxContainer .box h3 {
+  line-height: 60px;
+  font-size: 20px;
+  color: #8ac6d1;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.boxContainer .wrapper {
+  display: block;
+  width: 80%;
+  height: 100%;
+}
+
+section.offer .wrapper .boxContainer .box .wrapper p {
+  text-align: justify;
+  color: #8ac6d1;
+}
+
+section.contactInfo {
+  background-color: #8ac6d1;
+  width: 100%;
+  height: 300px;
+  padding: 30px 0;
+}
+
+section.contactInfo .wrapper {
+  width: 55%;
+  display: grid;
+  grid-gap: 10px;
+}
+
+section.contactInfo .wrapper .box,
+section.contact .wrapper div .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #faf5e4;
+}
+
+section.contactInfo .wrapper .box .contactTitle,
+section.contact .wrapper div .box .contactTitle {
+  display: block;
+  font-size: 24px;
+}
+
+section.contactInfo .wrapper .box .contactDate,
+section.contact .wrapper div .box .contactDate {
+  display: block;
+  font-weight: lighter;
+}
+
+section.contactInfo .wrapper .box .contactDate a {
+  color: #faf5e4;
+  text-decoration: none;
+}
+
+section.price {
+  background-image: url('../img/priceBackground.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+section.price .backgroundColor {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(254, 252, 245, 0.8);
+}
+
+section.price .backgroundColor .wrapper ul {
+  list-style: none;
+  color: #faf5e4;
+  padding-bottom: 20px;
+}
+
+section.price .backgroundColor .wrapper ul li {
+  /* margin-bottom: 5px; */
+  text-align: center;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 22px;
+}
+
+section.price .backgroundColor .wrapper .boxContainer .box {
+  background-color: #8ac6d1;
+}
+
+section.price .backgroundColor .wrapper .boxContainer .box h3,
+section.price .backgroundColor .wrapper .boxContainer .box p {
+  color: #faf5e4;
+}
+
+section.contact .wrapper {
+  display: grid;
+  grid-template-rows: 70px 450px 1fr;
+  grid-gap: 20px;
+  height: 100%;
+  min-height: 200px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-family: 'Lato', sans-serif;
+  color: #8ac6d1;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+form input,
+form textarea {
+  border: none;
+  color: #8ac6d1;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  padding: 5px;
+}
+
+form input {
+  height: 20px;
+  margin-bottom: 8px;
+}
+
+form textarea {
+  height: 200px;
+  resize: none;
+}
+
+form button {
+  width: 120px;
+  height: 35px;
+  background-color: #8ac6d1;
+  font-size: 16px;
+  color: #faf5e4;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+section.contact .wrapper div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+section.contact .wrapper div iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+}
+
+section.contact .wrapper div .box,
+section.contact .wrapper div .box .contactTitle,
+section.contact .wrapper div .box .contactDate {
+  color: #8ac6d1;
+}
+
+section.contact .wrapper div .box .contactDate a {
+  text-decoration: none;
+  color: #8ac6d1;
+  font-family: 'Lato', sans-serif;
+}
+
+section.contact .wrapper div .box {
+  margin-top: 20px;
+}
+
+section.contact .wrapper div .box:nth-last-of-type(1) {
+  margin-bottom: 20px;
+}
+
+footer {
+  width: 100%;
+  height: 14px;
+}
+
+footer p {
+  font-size: 10px;
+  font-family: 'Lato', sans-serif;
+  color: #8ac6d1;
+  text-align: center;
+  font-weight: 300;
+}

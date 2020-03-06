@@ -12,6 +12,10 @@ body {
   background-color: #faf5e4;
 }
 
+button {
+  cursor: pointer;
+}
+
 .wrapper {
   position: relative;
   width: 90%;
@@ -428,4 +432,53 @@ footer p {
   color: #8ac6d1;
   text-align: center;
   font-weight: 300;
+}
+
+@media (min-width: 440px) {
+  section.about .wrapper {
+    grid-template-rows: 70px 400px 1fr;
+  }
+}
+
+@media (min-width: 525px) {
+  section.about .wrapper {
+    grid-template-rows: 70px 300px 1fr;
+  }
+
+  section.about .wrapper div {
+    width: 250px;
+    position: relative;
+    overflow: hidden;
+  }
+  .homeIntro .btnContainer {
+    width: 430px;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+
+  section.about .wrapper div {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  section.about .wrapper p {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 700px) {
+  section.about .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+}
+
+@media (min-width: 800px) {
+  .homeIntro div {
+    width: 740px;
+    margin: 0 auto;
+  }
 }

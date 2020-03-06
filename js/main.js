@@ -7,6 +7,7 @@ toggleMobileNavBtn.addEventListener('click', () => {
   if (!mobileNavIsOpen) {
     mobileNav.style.transform = 'translateX(0)';
     mobileNavIsOpen = true;
+    toggleMobileNavBtn.classList.add('active');
   } else {
     if (mobileNavSide === 'right') {
       mobileNav.style.transform = 'translateX(-100%)';
@@ -16,6 +17,7 @@ toggleMobileNavBtn.addEventListener('click', () => {
       mobileNavSide = 'right';
     }
     mobileNavIsOpen = false;
+    toggleMobileNavBtn.classList.remove('active');
   }
 });
 

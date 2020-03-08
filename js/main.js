@@ -23,6 +23,7 @@ toggleMobileNavBtn.addEventListener('click', () => {
 
 const scrollBtns = [...document.querySelectorAll('.scroll')];
 const scrollOnlyBtns = [...document.querySelectorAll('.scrollOnly')];
+const scrollDesktop = [...document.querySelectorAll('.scrollDesktop')];
 
 scrollBtns.forEach(i => {
   i.addEventListener('click', e => {
@@ -42,6 +43,16 @@ scrollBtns.forEach(i => {
     });
   });
 });
+
+scrollDesktop.forEach(i => {
+  i.addEventListener('click', e => {
+    window.scroll({
+      top: document.getElementById(e.target.value).offsetTop,
+      left: 0,
+      behavior: 'smooth'
+    });
+  })
+})
 
 scrollOnlyBtns.forEach(i => {
   i.addEventListener('click', e => {

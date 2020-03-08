@@ -8,7 +8,7 @@ body {
   position: relative;
   width: 100%;
   min-height: 200vh;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   background-color: #fefcf5;
 }
 
@@ -37,7 +37,7 @@ button {
 .home {
   width: 100%;
   height: 100vh;
-  background-image: url('../img/homeBackground.jpg');
+  background-image: url("../img/homeBackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -83,16 +83,43 @@ button {
   border: none;
 }
 
-.btnContainer button {
+.scrollOnly {
+  position: relative;
   border: 1px solid #faf5e4;
   color: #faf5e4;
   text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 16px;
   border-radius: 20px;
   padding: 10px 30px;
   margin-top: 10px;
   background-color: transparent;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-sizing: border-box;
+}
+
+.scrollOnly::after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(50%);
+  border: 1px solid #faf5e4;
+  background-color: #faf5e4;
+  transition: 0.3s ease;
+}
+
+.scrollOnly:hover {
+  color: #8ac6d1;
+}
+
+.scrollOnly:hover::after {
+  transform: translateY(-50%);
+  z-index: -1;
 }
 
 .mobileNavBtn {
@@ -144,6 +171,53 @@ button {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+nav.desktopNav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  z-index: 1;
+}
+
+nav.desktopNav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  grid-column: 2 / 3;
+  list-style: none;
+}
+
+.scrollDesktop {
+  position: relative;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  background-color: transparent;
+  border: none;
+  color: #faf5e4;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.scrollDesktop::after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #faf5e4;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-155%);
+  transition: 0.3s ease;
+}
+
+.scrollDesktop:hover::after {
+  transform: translateX(-50%);
+}
+
 nav.mobileNav {
   display: grid;
   grid-template-rows: 70px 1fr;
@@ -175,7 +249,7 @@ nav.mobileNav button {
   border: 2px solid #8ac6d1;
   color: #8ac6d1;
   text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 16px;
   border-radius: 20px;
   padding: 10px 30px;
@@ -237,6 +311,39 @@ section.offer .wrapper {
   width: 100%;
   background-color: #ffffff;
   margin-bottom: 10px;
+  transition: 0.8s ease;
+  box-shadow: 0 0 30px -15px #777777;
+  z-index: 1;
+}
+
+section.price .backgroundColor .wrapper .boxContainer .box:hover {
+  background-color: #faf5e4;
+}
+
+section.price .backgroundColor .wrapper .boxContainer .box:hover > ul,
+section.price .backgroundColor .wrapper .boxContainer .box:hover > h3 {
+  color: #8ac6d1;
+}
+
+.boxContainer .box p {
+  width: 80%;
+  padding: 0 10px 20px 10px;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #8ac6d1;
+  text-align: justify;
+  line-height: 22px;
+  font-weight: 300;
+  font-family: "Lato", sans-serif;
+}
+
+.boxContainer .box:hover {
+  background-color: #8ac6d1;
+}
+
+.boxContainer .box:hover > h3,
+.boxContainer .box:hover > p {
+  color: #faf5e4;
 }
 
 section.price .wrapper .boxContainer .box:nth-last-of-type(1) {
@@ -249,12 +356,6 @@ section.price .wrapper .boxContainer .box:nth-last-of-type(1) {
   color: #8ac6d1;
   text-transform: uppercase;
   text-align: center;
-}
-
-.boxContainer .wrapper {
-  display: block;
-  width: 80%;
-  height: 100%;
 }
 
 section.offer .wrapper .boxContainer .box .wrapper p {
@@ -301,7 +402,7 @@ section.contactInfo .wrapper .box .contactDate a {
 }
 
 section.price {
-  background-image: url('../img/priceBackground.jpg');
+  background-image: url("../img/priceBackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -320,7 +421,6 @@ section.price .backgroundColor .wrapper ul {
 }
 
 section.price .backgroundColor .wrapper ul li {
-  /* margin-bottom: 5px; */
   text-align: center;
   font-size: 14px;
   font-weight: 300;
@@ -351,7 +451,7 @@ form {
 }
 
 form label {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   color: #8ac6d1;
   font-size: 18px;
   font-weight: 300;
@@ -361,19 +461,28 @@ form input,
 form textarea {
   border: none;
   color: #8ac6d1;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 14px;
   padding: 5px;
+  box-shadow: 0 0 30px -15px #777777;
+  /* box-shadow: 0 0 30px -15px #777777; */
+  /* box-shadow: 0 10px 10px -5px #777; */
+  /* box-shadow: 0 8px 6px -6px #777777; */
 }
 
 form input {
+  /* border: none; */
   height: 20px;
   margin-bottom: 8px;
+  box-shadow: 0 0 30px -10px #777777;
+  /* box-shadow: 0 0 4px #8ac6d1; */
 }
 
 form textarea {
   height: 200px;
   resize: none;
+  box-shadow: 0 0 30px -15px #777777;
+  /* box-shadow: 0 0 4px #8ac6d1; */
 }
 
 form button {
@@ -382,7 +491,7 @@ form button {
   background-color: #8ac6d1;
   font-size: 16px;
   color: #faf5e4;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   text-transform: uppercase;
   border: none;
   border-radius: 20px;
@@ -410,7 +519,7 @@ section.contact .wrapper div .box .contactDate {
 section.contact .wrapper div .box .contactDate a {
   text-decoration: none;
   color: #8ac6d1;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 section.contact .wrapper div .box {
@@ -428,7 +537,7 @@ footer {
 
 footer p {
   font-size: 10px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   color: #8ac6d1;
   text-align: center;
   font-weight: 300;
@@ -450,6 +559,7 @@ footer p {
     position: relative;
     overflow: hidden;
   }
+
   .homeIntro .btnContainer {
     width: 430px;
     flex-direction: row;
@@ -479,6 +589,10 @@ footer p {
 
   .wrapper {
     width: 80%;
+  }
+
+  section.price .wrapper .boxContainer .box {
+    margin-bottom: 30px;
   }
 
   .boxContainer {
@@ -515,5 +629,86 @@ footer p {
 @media (min-width: 950px) {
   section.about .wrapper {
     grid-template-rows: 70px 400px 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home {
+    background-position: center;
+  }
+
+  nav.mobileNav {
+    display: none;
+  }
+
+  .mobileNavBtn {
+    display: none;
+  }
+
+  .wrapper,
+  section.contactInfo .wrapper,
+  section.about .wrapper {
+    width: 900px;
+  }
+
+  section.about .wrapper {
+    grid-template-rows: 70px 380px 1fr;
+  }
+
+  section.about .wrapper p,
+  section.offer .wrapper .boxContainer .box .wrapper p {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .boxContainer .box h3 {
+    font-size: 18px;
+  }
+
+  section.price .backgroundColor .wrapper ul li {
+    font-size: 16px;
+  }
+
+  .wrapper .boxContainer .box .wrapper p {
+    font-weight: 300;
+  }
+
+  section.contactInfo .wrapper .box {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  section.contactInfo {
+    height: 100px;
+  }
+
+  section.contact .wrapper {
+    grid-template-rows: 70px 450px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 30px;
+  }
+
+  form {
+    width: 90%;
+    grid-column: 1 / 2;
+    margin: 0 auto;
+  }
+
+  form::after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(100% - 70px);
+    background-color: #8ac6d1;
+  }
+
+  section.contact .wrapper div {
+    width: 90%;
+    grid-column: 2 / 3;
+    margin: 0 auto;
   }
 }
